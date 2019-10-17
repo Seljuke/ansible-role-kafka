@@ -1,0 +1,22 @@
+# {{ ansible_managed }}
+
+[Unit]
+Description=Kafka
+Requires=network.target remote-fs.target
+After=network.target remote-fs.target
+Wants=network.target remote-fs.target
+
+[Service]
+Type=simple
+User=kafka
+Group=kafka
+WorkingDirectory={{ install_dir }}
+EnvironmentFile=/etc/systemd/system/kafka.env
+ExecStart={{ install_dir }}/bin/kafka-server-start.sh {{ install_dir }}/config/server.properties
+ExecStop={{ install_dir }}/bin/kafka-server-stop.sh
+Restart=always
+RestartSec=3
+TimeoutSec=300
+
+[Install]
+WantedBy=multi-user.target

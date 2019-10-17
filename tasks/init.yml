@@ -1,0 +1,45 @@
+---
+# Create user and group kafka
+
+- name: Add kafka group
+  group:
+    name: kafka
+    state: present
+  become: yes
+
+- name: Add kafka user
+  user:
+    name: kafka
+    comment: kafka user
+    state: present
+    create_home: false
+    home: "{{ install_dir }}"
+    group: kafka
+    shell: /sbin/nologin
+    system: true
+  become: yes
+
+# Create directories and set permissions
+- name: Create download dir -> {{ download_dir }}
+  file:
+    path: "{{ download_dir }}"
+    state: directory
+
+- name: "Create installation directory ->  {{ install_dir }}"
+  file:
+    path: "{{ install_dir }}"
+    state: directory
+    owner: kafka
+    group: kafka
+    mode: "0744"
+  become: yes
+
+- name: "Create kafka data log directories"
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: kafka
+    group: kafka
+  with_items:
+    - "{{ log_dirs.split(',') }}"
+  become: yes
