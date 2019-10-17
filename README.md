@@ -7,7 +7,7 @@ This role:
 
 Requirements
 ------------
- - At least 1 zookeeper should be already installed on localhost or you can use this role with seljuke.zookeeper role to fresh install.
+ - At least 1 zookeeper should be already installed on localhost or you can use this role with `seljuke.zookeeper` role to fresh install.
 
  - Minimal Version of the ansible for installation: 2.7
  Supported OS:
