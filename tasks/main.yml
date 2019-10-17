@@ -3,6 +3,6 @@
   set_fact:
     broker_id: "{{ groups['all'].index(inventory_hostname)|int + 1 }}"
   when: broker_id is not defined
-- import_tasks : init.yml
-- import_tasks : download.yml
-- import_tasks : install.yml
+- import_tasks: init.yml
+- import_tasks: download.yml
+- import_tasks: install.yml
