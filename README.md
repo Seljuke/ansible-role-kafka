@@ -7,7 +7,7 @@ This role:
 
 Requirements
 ------------
- - At least 1 zookeeper should be already installed on localhost or you can use this role with seljuke.zookeeper role to fresh install.
+ - At least 1 zookeeper should be already installed on localhost or you can use this role with `seljuke.zookeeper` role to fresh install.
 
  - Minimal Version of the ansible for installation: 2.7
  Supported OS:
@@ -54,6 +54,7 @@ Role Variables
 
 - `kafka_port` - kafka listening port
   default: `9092`
+
 Other variable can be found at defaults
 
 Dependencies
@@ -98,6 +99,8 @@ Example Playbook
   roles:
     - role: seljuke.zookeeper
 ```
+
+I reccomend you to use this role with `seljuke.zookeeper` role, but when you use it with `seljuke.zookeeper` role please set the zookeepers inventory group name to `zookeepers`. In feature I will make this dynamic.
 
 License
 -------
