@@ -54,6 +54,7 @@ Role Variables
 
 - `kafka_port` - kafka listening port
   default: `9092`
+
 Other variable can be found at defaults
 
 Dependencies
