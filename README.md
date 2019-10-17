@@ -100,6 +100,8 @@ Example Playbook
     - role: seljuke.zookeeper
 ```
 
+I reccomend you to use this role with `seljuke.zookeeper` role, but when you use it with `seljuke.zookeeper` role please set the zookeepers inventory group name to `zookeepers`. In feature I will make this dynamic.
+
 License
 -------
 Apache
