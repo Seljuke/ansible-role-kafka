@@ -79,16 +79,24 @@ Example Playbook
 ----------------
 
 ```yaml
-- name: Installing ZooKeeper
-  hosts: zookeeper
+- name: Install java
+  hosts: all
   roles:
     - role: geerlingguy.java
       when: "ansible_os_family == 'Debian'"
       java_packages:
         - openjdk-8-jdk
+
+- name: Install zookeeper
+  hosts: zookeepers
+  roles:
     - role: seljuke.zookeeper
       zk_inventory_group: zookeepers
-    - role: seljuke.kafka
+
+- name: Install kafka
+  hosts: zookeepers
+  roles:
+    - role: seljuke.zookeeper
 ```
 
 License
