@@ -95,9 +95,9 @@ Example Playbook
       zk_inventory_group: zookeepers
 
 - name: Install kafka
-  hosts: zookeepers
+  hosts: kafka-brokers
   roles:
-    - role: seljuke.zookeeper
+    - role: seljuke.kafka
 ```
 
 I reccomend you to use this role with `seljuke.zookeeper` role, but when you use it with `seljuke.zookeeper` role please set the zookeepers inventory group name to `zookeepers`. In feature I will make this dynamic.
